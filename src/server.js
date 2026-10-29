@@ -1,5 +1,5 @@
 import express from 'express'
-import PostsRouter  from './routes/Posts.routes.js'
+import {PostsRouter} from "./routes/Posts.routes.js";
 
 const server = express()
 

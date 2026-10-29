@@ -1,10 +1,10 @@
 import { Router } from 'express';
-import { PostsController } from '../controllers/Posts.controller.js';
+import { postsController } from '../controllers/Posts.controller.js';
 
 export const PostsRouter = Router();
 
-PostsRouter.get('/', PostsController.getAll);
-PostsRouter.get('/:id', PostsController.getById);
-PostsRouter.post('/', PostsController.create);
-PostsRouter.put('/:id', PostsController.update);
-PostsRouter.delete('/:id', PostsController.delete);
+PostsRouter.get('/', postsController.getAll);
+PostsRouter.get('/:id', postsController.getById);
+PostsRouter.post('/', postsController.create);
+PostsRouter.put('/:id', postsController.update);
+PostsRouter.delete('/:id', postsController.delete);

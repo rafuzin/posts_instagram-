@@ -1,26 +1,26 @@
-import { PostRepository } from "../repository/Posts.repository.js";
+import { postRepository } from "../repository/Posts.repository.js";
 
 class PostsServices {
     async getall() {
-        return PostRepository.getAll()
+        return postRepository.getAll()
     }
 
     async getById(id) {
-        return PostRepository.getById(id)
+        return postRepository.getById(id)
     }
 
     async create(dados) {
-        return PostRepository.create(dados)
+        return postRepository.create(dados)
     }
 
     async update(id) {
 
-        return PostRepository.update(id)
+        return postRepository.update(id)
     }
 
     async delete(id) {
 
-        return PostRepository.delete(id)
+        return postRepository.delete(id)
     }
 }
 

@@ -1,9 +1,9 @@
-import { PostsServices } from '../service/Posts.service.js';
+import { postsServices } from '../service/Posts.service.js';
 
 class PostsController {
     async getAll(_req, res) {
         try {
-            return res.json(await PostsServices.getall());
+            return res.json(await postsServices.getall());
         } catch (error) {
             console.error(error);
             return res.status(500).json({ erro: 'Erro ao procurar Posts.' });
@@ -12,7 +12,7 @@ class PostsController {
 
     async getById(req, res) {
         try {
-            const Posts = await PostsServices.getById(req.params.id);
+            const Posts = await postsServices.getById(req.params.id);
             if (!Posts) return res.status(404).json({ erro: 'Post não encontrado.' });
             return res.json(Posts);
         } catch (error) {
@@ -23,7 +23,7 @@ class PostsController {
 
     async create(req, res) {
         try {
-            return res.status(201).json(await PostsServices.create(req.body));
+            return res.status(201).json(await postsServices.create(req.body));
         } catch (error) {
             console.error(error);
             return res.status(500).json({ erro: 'Erro ao inserir o Post.' });
@@ -32,8 +32,8 @@ class PostsController {
 
     async update(req, res) {
         try {
-            const Posts = await PostsServices.update(req.params.id, req.body);
-            if (!Posts) return res.status(404).json({ erro: 'Pokémon não encontrado.' });
+            const Posts = await postsServices.update(req.params.id, req.body);
+            if (!Posts) return res.status(404).json({ erro: 'Post não encontrado.' });
             return res.json(Posts);
         } catch (error) {
             console.error(error);
@@ -43,7 +43,7 @@ class PostsController {
 
     async delete(req, res) {
         try {
-            const Posts = await PostsServices.delete(req.params.id);
+            const Posts = await postsServices.delete(req.params.id);
             if (!Posts) return res.status(404).json({ erro: 'Post não encontrado.' });
             return res.json(Posts);
         } catch (error) {
@@ -54,4 +54,4 @@ class PostsController {
 
 }
 
-export const pokemonsController = new PostsController();
+export const postsController = new PostsController();
